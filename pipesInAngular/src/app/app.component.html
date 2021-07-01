@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-sm-2 col-md-2 col-lg-2"></div>
+  <div class="col-sm-8 col-md-8 col-lg-8"> 
+    <input type="text" placeholder="search" class="form-control" [(ngModel)] = 'searchText'/>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th><button (click)= "toggleImage()">
+            {{toggleImageStatus ? 'Show' : 'Hide'}} Images
+          </button></th>
+          <th>Sl.no</th>
+          <th>Product Name</th>
+          <th>Price</th>
+          <th>Ram</th>
+          <th>Battery</th>
+          <th>Warranty</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of productList | filter: searchText ; let i = index">
+          <td><div *ngIf='toggleImageStatus'><img [src]="product.image" [style.width.px] = 'imageWidth'
+            [style.margin.px] = 'imageMargin' /> </div></td>
+          <td>{{product.indexNumber}}</td>
+          <td>{{product.productName}}</td>
+          <td>{{product.price | currency}}</td>
+          <td>{{product.ramSize}}</td>
+          <td>{{product.battery}}</td>
+          <td>{{product.warrenty}}</td>
+          <td><app-star-rating [startRating] = 'product.starRating' (starRatingToParent) = 'starRatingFromParent($event,i)'></app-star-rating>
+                {{product.starRating}}
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>

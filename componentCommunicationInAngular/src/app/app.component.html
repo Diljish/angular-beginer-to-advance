@@ -1,0 +1,12 @@
+<h2>Component Communication</h2>
+<div>
+  <div>Increment Parent component Data</div>
+  <button (click) = "incrementDataByOne()">Increment Value from parent component</button>
+  <div>{{parentComponentNumber}}</div>
+</div>
+
+<app-product #prd [data] = 'parentComponentNumber' (dataValueChanges) ='getChildData($event)' ></app-product>
+<div>From child {{dataFromChild}}</div>
+<div>View child data {{dataUsingViewChild}}</div>
+<div><button (click) = 'prd.templateReferenceCall()'>Using template Reference</button></div>
+<div>{{prd.value}}</div>
