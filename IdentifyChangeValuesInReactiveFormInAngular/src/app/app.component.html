@@ -1,0 +1,36 @@
+<h2>Idenify changes in reacive forms in angular sample</h2>
+<form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+<div>
+<div>
+ <input type='email'  formControlName = 'email' placeholder="email" />
+ <div class="alert alert-danger" *ngIf="loginForm?.get('email')?.hasError('required') && loginForm?.get('email')?.touched">Email required</div>
+</div>
+<div>
+  <input type="password" formControlName = 'password' placeholder="password" />
+  <div class="alert alert-danger" *ngIf="loginForm?.get('password')?.hasError('required') && loginForm?.get('password')?.touched">Password required</div>
+</div>
+<div>
+  <input type="text" formControlName='age' placeholder="enter age"/>
+  <div class="alert alert-danger" *ngIf="loginForm?.get('age')?.dirty &&loginForm?.get('age')?.errors  && loginForm?.get('age')?.errors?.ageRange">Age must be in between 18 and 45</div>
+</div>
+<div>
+  <input type="text" formControlName='phoneNumber' placeholder="enter phone number"/>
+  <div class="alert alert-danger" *ngIf="loginForm?.get('phoneNumber')?.dirty && loginForm?.get('phoneNumber')?.errors && loginForm?.get('phoneNumber')?.touched ">Phone number required</div>
+</div>
+<br/>
+<div>
+  <label>Send Notification</label>
+  <div>
+    <input type="radio"  value = "email" formControlName="notification"/>Email
+  </div>
+  <div>
+    <input type="radio"  value = "phone" formControlName="notification"/>Phone
+  </div>
+
+</div>
+
+<div>
+  <button [disabled]= 'loginForm.invalid'>Submit</button>
+</div>
+</div>
+</form>
