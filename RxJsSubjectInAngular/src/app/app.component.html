@@ -1,0 +1,53 @@
+<div>RxJS Subject Demo</div>
+
+<div class="row">
+<div class="wrapper column">
+<div>
+  <button (click)='subscribe1()'>
+    Subscriber 1
+  </button>
+  <hr />
+
+  <div *ngFor ="let p of observer1">
+    <p class="data1">{{p}}</p>
+  </div>
+  <div *ngIf ="showObserver1">
+    completed
+
+  </div>
+</div>
+</div>
+<div class="wrapper column">
+<div>
+  <button (click)='subscribe2()'>
+    Subscriber 2
+  </button>
+  <hr />
+
+  <div *ngFor ="let p of observer2">
+    <p class="data1">{{p}}</p>
+  </div>
+  <div *ngIf ="showObserver2">
+    completed
+
+  </div>
+</div>
+</div>
+<div class="wrapper column">
+<div>
+  <button (click)='subscribe3()'>
+    Subscriber 3
+  </button>
+  <hr />
+
+  <div *ngFor ="let p of observer3">
+    <p class="data1">{{p}}</p>
+  </div>
+  <div *ngIf ="showObserver3">
+    completed
+
+  </div>
+</div>
+
+</div>
+</div>
