@@ -1,0 +1,25 @@
+<p>orders works!</p>
+
+
+<div>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>year</th>
+        <th>color</th>
+        <th>pantone_value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+          <td (click) = "navigateToOrderDetails(order.id)">{{order?.name}}</td>
+          <td>{{order?.year}}</td>
+          <td>{{order?.color}}</td>
+          <td>{{order?.pantone_value}}</td>
+        
+      </tr>
+    </tbody>
+  </table>
+</div>
